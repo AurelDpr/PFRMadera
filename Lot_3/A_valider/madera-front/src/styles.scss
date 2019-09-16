@@ -1,0 +1,24 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-image: url("./assets/background.png");
+}
+
+div {
+  border-radius: 50px;
+}
+
+.section {
+  height: 500px
+}
+
+.divformulaire {
+  background-image: url("./assets/wallpaper.jpg");
+  background-position: bottom center;
+  transform: rotate(-7deg);
+  border-radius: 50px;
+}
+
+.formulaire {
+  transform: rotate(7deg);
+}
