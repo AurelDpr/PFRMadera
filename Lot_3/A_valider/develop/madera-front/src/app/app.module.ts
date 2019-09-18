@@ -1,11 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ConnexionComponent } from './connexion/connexion.component';
-import { GestionClientComponent } from './gestion-client/gestion-client.component';
-import { GestionProjetComponent } from './gestion-projet/gestion-projet.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
+import { GestionClientComponent } from './components/gestion-client/gestion-client.component';
+import { GestionProjetComponent } from './components/gestion-projet/gestion-projet.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { GestionProjetComponent } from './gestion-projet/gestion-projet.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

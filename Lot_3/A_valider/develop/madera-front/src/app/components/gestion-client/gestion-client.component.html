@@ -1,0 +1,53 @@
+<div class="row m-0">
+  <div class="col-9">
+    <img src="../../../assets/logo.png" width="400px" class="m-3" [routerLink]="['/projet']">
+  </div>
+
+  <div class="input-group col-2 mb-5 mt-5 ml-5 pt-3 pl-0">
+    <input type="text" class="form-control" placeholder="Rechercher" [(ngModel)]="search" (ngModelChange)="onSearch()">
+    <div class="input-group-append">
+      <button class="btn btn-success" type="button" (click)="onSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<section class="row m-5">
+  <div class="col-2 bg-light border border-success mr-5 section text-center text-dark pt-5">
+    <div *ngIf="client !== null">
+      <p>{{client.prenom}} {{client.nom}}</p>
+      <p>{{client.adresse}}<br>{{client.codePostal}} {{client.ville}}</p>
+      <p>{{client.phone}}</p>
+      <p>{{client.email}}</p>
+    </div>
+  </div>
+
+  <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-light ml-5 section">
+    <div class="row m-3" >
+      <div class="text-light text-center col-2">
+        <div class="rounded-circle bg-dark border border-light p-4 m-3 mb-1" (click)="createClient()">
+          <h1>
+            <i class="fas fa-plus ml-2 mr-2"></i>
+          </h1>
+        </div>
+        <div>
+          <h5>Ajouter</h5>
+        </div>
+      </div>
+
+      <!--      <div *ngFor="let client of clients.find(client => client.nom.includes(search))" class="text-light col-2" >-->
+      <div *ngFor="let client of searchClients" class="text-light col-2" >
+        <div class="rounded-circle bg-dark text-light border border-light text-center p-4 m-3 mb-1" (click)="selectClient(client)">
+          <h1>
+            <i class="fas fa-user"></i>
+          </h1>
+        </div>
+        <div class="text-center">
+          <h5>{{client.prenom}} {{client.nom}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
