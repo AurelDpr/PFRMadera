@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService } from '../../services/client.service';
+import {ClientService} from '../../services/client.service';
 
 @Component({
-  selector: 'app-gestion-projet',
-  templateUrl: './gestion-client.component.html',
-  styleUrls: ['./gestion-client.component.scss']
+  selector: 'app-gestion-plan',
+  templateUrl: './gestion-plan.component.html',
+  styleUrls: ['./gestion-plan.component.scss']
 })
-export class GestionClientComponent implements OnInit {
+export class GestionPlanComponent implements OnInit {
 
   clients: Array<any>;
   searchClients: Array<any>;
@@ -34,3 +34,4 @@ export class GestionClientComponent implements OnInit {
     this.searchClients = this.clients.filter(client => client.nom.includes(this.search) || client.prenom.includes(this.search));
   }
 }
+

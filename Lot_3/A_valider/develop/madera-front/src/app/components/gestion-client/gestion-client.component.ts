@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-gestion-projet',
@@ -13,7 +14,7 @@ export class GestionClientComponent implements OnInit {
   client: any = null;
   search = '';
 
-  constructor(private clientService: ClientService) { }
+  constructor(private clientService: ClientService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.clientService.getAllClients().subscribe(response => {
@@ -28,6 +29,10 @@ export class GestionClientComponent implements OnInit {
 
   createClient() {
 
+  }
+
+  openWindowCustomClass(content) {
+    this.modalService.open(content, { centered: true });
   }
 
   onSearch() {

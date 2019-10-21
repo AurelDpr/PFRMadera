@@ -1,6 +1,12 @@
 <div class="row m-0">
-  <div class="col-9">
-    <img src="../../../assets/logo.png" width="400px" class="m-3" [routerLink]="['/projet']">
+  <div class="col-4">
+    <img src="../../../assets/logo.png" width="400px" class="m-3">
+  </div>
+
+  <div class="col-5">
+    <div class="rounded-circle bg-dark p-2 text-center text-light border border-light w-50 mx-auto mt-5">
+      <h1>Gestion Projet</h1>
+    </div>
   </div>
 
   <div class="input-group col-2 mb-5 mt-5 ml-5 pt-3 pl-0">
@@ -15,7 +21,10 @@
 
 
 <section class="row m-5">
-  <div class="col-2 bg-light border border-success mr-5 section text-center text-dark">
+  <div class="col-2 bg-light border border-success mr-5 section text-center text-dark pt-2">
+<!--    <div class="rounded-circle bg-dark p-2 text-light">-->
+<!--      <h3>Gestion Projet</h3>-->
+<!--    </div>-->
     <div>
       <div class="mx-auto w-50 text-light rounded-circle bg-dark border border-light p-4 m-3 mb-1" [routerLink]="['/client']">
         <h1>
@@ -30,7 +39,7 @@
       <p>{{projet.label}}</p>
       <p>{{projet.client.nom}} {{projet.client.prenom}}</p>
       <p>{{projet.created_at}}</p>
-      <button class="btn btn-dark">Ouvrir le projet</button>
+      <button class="btn btn-dark" [routerLink]="['/projet/'+projet.id]">Ouvrir le projet</button>
     </div>
   </div>
 
@@ -47,7 +56,6 @@
         </div>
       </div>
 
-      <!--<div *ngFor="let client of clients.find(client => client.nom.includes(search))" class="text-light col-2" >-->
       <div *ngFor="let projet of searchProjets" class="text-light col-2">
         <div class="rounded-circle border border-light etat" [ngStyle]="{'background-color' : colors[projet.etat]}">
 
