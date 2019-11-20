@@ -1,7 +1,7 @@
 <div class="container-fluid mx-0">
   <div class="row m-0">
     <div class="col-12">
-      <img src="../../../assets/logo.png" width="400px" class="m-3" [routerLink]="['/projet']">
+      <img src="../../../assets/logo.png" width="400px" class="m-3">
     </div>
   </div>
 
@@ -15,23 +15,54 @@
     </div>
 
     <div class="col-2">
-        <div class="rounded-pill bg-success border border-light text-light text-center mx-2">
-          <h3 class="mb-0 pb-1">Projets</h3>
-        </div>
+      <div class="rounded-pill bg-success border border-light text-light text-center mx-2">
+        <h3 class="mb-0 pb-1">Projets</h3>
+      </div>
     </div>
 
     <div class="col-2">
-      <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
-        <h3 class="mb-0 pb-1">Configurations</h3>
-      </div>
+      <a [routerLink]="['/configuration']">
+        <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
+          <h3 class="mb-0 pb-1">Configurations</h3>
+        </div>
+      </a>
     </div>
   </div>
 
   <section class="row mx-5 ">
     <div class="col-4 bg-light border border-success mr-5 section text-center text-dark pt-2">
+
+
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Formes</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="forme">
+          <option [value]="null" disabled>Selectionner une forme</option>
+          <option *ngFor="let forme of formes" [ngValue]="forme">{{forme.label}}</option>
+        </select>
+      </div>
+
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="">Dimension (cm)</span>
+        </div>
+        <input type="text" placeholder="Longueur" class="form-control">
+        <input type="text" placeholder="Largeur" class="form-control">
+      </div>
+
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect02">Materiaux</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="materiaux">
+          <option [value]="null" disabled>Selectionner un materiau</option>
+          <option [value]="'Bois de chêne'">Bois de chêne</option>
+        </select>
+      </div>
     </div>
     <div data-simplebar data-simplebar-auto-hide="false" class="col-7 border border-success ml-5 section text-center plan">
-      <img src="../../../assets/plan/carré.png" width="450px">
+      <img *ngIf="forme" [src]="'data:image/png;base64,' + forme.image" width="450px">
     </div>
   </section>
 </div>

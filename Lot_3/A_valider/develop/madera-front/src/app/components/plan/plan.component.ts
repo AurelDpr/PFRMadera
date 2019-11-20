@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {ComposantService} from '../../services/composant.service';
 
 @Component({
   selector: 'app-plan',
@@ -8,9 +9,16 @@ import {Router} from '@angular/router';
 })
 export class PlanComponent implements OnInit {
 
-  constructor() { }
+  formes: Array<any>;
+  forme: any = null;
+  materiaux: any = null;
+
+  constructor(private composantService: ComposantService) { }
 
   ngOnInit() {
+    this.composantService.getAllFormes().subscribe(response => {
+      this.formes = response;
+    });
   }
 
 }
