@@ -1,0 +1,51 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-image: url("./assets/background.png");
+  background-attachment: fixed;
+}
+
+div {
+  border-radius: 50px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.section {
+  height: 500px
+}
+
+.divformulaire {
+  background-image: url("./assets/wallpaper.jpg");
+  background-position: bottom center;
+  transform: rotate(-7deg);
+  border-radius: 50px;
+}
+
+.formulaire {
+  transform: rotate(7deg);
+}
+
+.modalForm {
+  background-image: url("./assets/wallpaper.jpg");
+  background-position: bottom center;
+  border-radius: 50px;
+}
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+.search-field {
+  background: white url(assets/searchIcon.png) no-repeat 7px 7px ;
+  background-size: 25px;
+  padding-left:50px;
+}
+
+.plan {
+  background: white url(assets/plan/plan.svg) no-repeat center;
+  background-size: 118%;
+}

@@ -1,0 +1,43 @@
+<div class="container-fluid mx-0">
+  <div class="row m-0">
+    <div class="col-12">
+      <img src="../../../assets/logo.png" width="400px" class="m-3" [routerLink]="['/projet']">
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-2 offset-3">
+      <a [routerLink]="['/client']">
+        <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
+          <h3 class="mb-0 pb-1">Clients</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-2">
+        <div class="rounded-pill bg-success border border-light text-light text-center mx-2">
+          <h3 class="mb-0 pb-1">Projets</h3>
+        </div>
+    </div>
+
+    <div class="col-2">
+      <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
+        <h3 class="mb-0 pb-1">Configurations</h3>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <input type="text" class="form-control search-field w-75 rounded-pill" placeholder="Rechercher" [(ngModel)]="search" (ngModelChange)="onSearch()">
+    </div>
+  </div>
+
+  <section class="row mx-5 ">
+    <div class="col-4 bg-light border border-success mr-5 section text-center text-dark pt-2">
+    </div>
+    <div data-simplebar data-simplebar-auto-hide="false" class="col-7 border border-success ml-5 section text-center plan">
+      <img src="../../../assets/plan/carré.png" width="450px">
+    </div>
+  </section>
+</div>
+
+
