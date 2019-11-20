@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjetService} from '../../services/projet.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-gestion-projet',
@@ -14,7 +15,7 @@ export class GestionProjetComponent implements OnInit {
   search = '';
   colors = ['yellow', 'blue', 'green', 'red'];
 
-  constructor(private projetService: ProjetService) { }
+  constructor(private projetService: ProjetService, private router: Router) { }
 
   ngOnInit() {
     this.projetService.getAllProjets().subscribe(response => {
@@ -25,6 +26,10 @@ export class GestionProjetComponent implements OnInit {
 
   selectProjet(projet: any) {
     this.projet = projet;
+  }
+
+  openProjet(path) {
+    this.router.navigate([path]);
   }
 
   createProjet() {

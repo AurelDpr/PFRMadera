@@ -3,9 +3,6 @@
     <div class="col-12">
       <img src="../../../assets/logo.png" width="400px" class="m-3" [routerLink]="['/projet']">
     </div>
-<!--    <div class="col-3 rounded-circle bg-success">-->
-<!--      <i class="fas fa-bars m-3"></i>-->
-<!--    </div>-->
 
     <!--    <div class="col-5">-->
     <!--      <div class="rounded-circle bg-dark text-center text-light border border-light w-50 mx-auto mt-5 p-2">-->
@@ -24,27 +21,7 @@
   </div>
 
   <div class="row mb-1">
-    <div class="col-2 offset-3">
-      <div class="rounded-pill bg-success border border-light text-light text-center mx-2">
-        <h3 class="mb-0 pb-1">Clients</h3>
-      </div>
-    </div>
-
-    <div class="col-2">
-      <a [routerLink]="['/projet']">
-        <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
-          <h3 class="mb-0 pb-1">Projets</h3>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-2">
-      <div class="rounded-pill bg-dark border border-light text-light text-center mx-2">
-        <h3 class="mb-0 pb-1">Configurations</h3>
-      </div>
-    </div>
-
-    <div class="col-3">
+    <div class="col-3 offset-9">
       <input type="text" class="form-control search-field w-75 rounded-pill" placeholder="Rechercher" [(ngModel)]="search" (ngModelChange)="onSearch()">
     </div>
   </div>

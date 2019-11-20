@@ -10,6 +10,7 @@ import { GestionProjetComponent } from './components/gestion-projet/gestion-proj
 import { FormsModule } from '@angular/forms';
 import { GestionPlanComponent } from './components/gestion-plan/gestion-plan.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PlanComponent } from './components/plan/plan.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ConnexionComponent,
     GestionClientComponent,
     GestionProjetComponent,
-    GestionPlanComponent
+    GestionPlanComponent,
+    PlanComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 import {GestionProjetComponent} from './components/gestion-projet/gestion-projet.component';
 import {GestionClientComponent} from './components/gestion-client/gestion-client.component';
 import {GestionPlanComponent} from './components/gestion-plan/gestion-plan.component';
+import {PlanComponent} from './components/plan/plan.component';
 
 
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'connection', component: ConnexionComponent },
   { path: 'projet', component: GestionProjetComponent },
   { path: 'client', component: GestionClientComponent },
-  { path: 'projet/:projetId', component: GestionPlanComponent }
+  { path: 'projet/:projetId', component: GestionPlanComponent },
+  { path: 'plan/:planId', component: PlanComponent }
 ];
 
 @NgModule({

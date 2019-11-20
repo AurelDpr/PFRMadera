@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import {Client} from '../../models/Client';
 
 @Component({
   selector: 'app-gestion-projet',
@@ -9,9 +10,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class GestionClientComponent implements OnInit {
 
-  clients: Array<any>;
-  searchClients: Array<any>;
-  client: any = null;
+  clients: Array<Client>;
+  searchClients: Array<Client>;
+  client: Client = null;
   search = '';
 
   constructor(private clientService: ClientService, private modalService: NgbModal) { }
@@ -19,6 +20,7 @@ export class GestionClientComponent implements OnInit {
   ngOnInit() {
     this.clientService.getAllClients().subscribe(response => {
       this.clients = response;
+      console.log(this.clients);
       this.searchClients = response;
     });
   }
