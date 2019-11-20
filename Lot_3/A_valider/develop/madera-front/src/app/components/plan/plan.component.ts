@@ -8,13 +8,9 @@ import {Router} from '@angular/router';
 })
 export class PlanComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  openPlan(path) {
-    this.router.navigate([path]);
   }
 
 }

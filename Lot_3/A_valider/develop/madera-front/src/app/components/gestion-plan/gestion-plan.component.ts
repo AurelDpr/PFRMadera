@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ClientService} from '../../services/client.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {PlanService} from '../../services/plan.service';
 
 @Component({
   selector: 'app-gestion-plan',
@@ -8,30 +9,40 @@ import {ClientService} from '../../services/client.service';
 })
 export class GestionPlanComponent implements OnInit {
 
-  clients: Array<any>;
-  searchClients: Array<any>;
-  client: any = null;
+  plans: Array<any>;
+  searchPlans: Array<any>;
+  projetId: string;
+  plan: any = null;
   search = '';
 
-  constructor(private clientService: ClientService) { }
+  constructor(
+    private planService: PlanService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.clientService.getAllClients().subscribe(response => {
-      this.clients = response;
-      this.searchClients = response;
+    this.projetId = this.route.snapshot.paramMap.get('projetId');
+    this.planService.getAllPlans().subscribe(response => {
+      this.plans = response.filter(plan => plan.projetId === Number(this.projetId));
+      this.searchPlans = response.filter(plan => plan.projetId === Number(this.projetId));
     });
   }
 
-  selectClient(client: any) {
-    this.client = client;
+  selectPlan(plan: any) {
+    this.plan = plan;
   }
 
-  createClient() {
+  createPlan() {
 
+  }
+
+  openPlan(path) {
+    this.router.navigate([path]);
   }
 
   onSearch() {
-    this.searchClients = this.clients.filter(client => client.nom.includes(this.search) || client.prenom.includes(this.search));
+    this.searchPlans = this.plans.filter(plan => plan.label.includes(this.search));
   }
 }
 

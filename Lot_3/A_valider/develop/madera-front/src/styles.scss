@@ -40,7 +40,12 @@ a:hover {
 }
 
 .search-field {
-  background: white url(assets/searchIcon.png) no-repeat 7px 7px;
+  background: white url(assets/searchIcon.png) no-repeat 7px 7px ;
   background-size: 25px;
   padding-left:50px;
+}
+
+.plan {
+  background: white url(assets/plan/plan.svg) no-repeat center;
+  background-size: 118%;
 }
