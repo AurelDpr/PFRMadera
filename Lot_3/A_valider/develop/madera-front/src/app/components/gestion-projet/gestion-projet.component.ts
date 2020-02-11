@@ -18,10 +18,16 @@ export class GestionProjetComponent implements OnInit {
   constructor(private projetService: ProjetService, private router: Router) { }
 
   ngOnInit() {
-    this.projetService.getAllProjets().subscribe(response => {
-      this.projets = response;
-      this.searchProjets = response;
-    });
+    if (window.localStorage.getItem('Projets') !== null) {
+      this.projets = JSON.parse(window.localStorage.getItem('Projets'));
+      this.searchProjets = JSON.parse(window.localStorage.getItem('Projets'));
+    } else {
+      this.projetService.getAllProjets().subscribe(response => {
+        this.projets = response;
+        this.searchProjets = response;
+        window.localStorage.setItem('Projets', JSON.stringify(this.projets));
+      });
+    }
   }
 
   selectProjet(projet: any) {
