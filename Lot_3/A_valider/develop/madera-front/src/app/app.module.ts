@@ -13,6 +13,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PlanComponent } from './components/plan/plan.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
 import { DevisComponent } from './components/devis/devis.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { DevisComponent } from './components/devis/devis.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

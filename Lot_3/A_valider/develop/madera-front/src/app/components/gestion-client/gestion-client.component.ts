@@ -26,7 +26,7 @@ export class GestionClientComponent implements OnInit {
       this.clientService.getAllClients().subscribe(response => {
         this.clients = response;
         this.searchClients = response;
-        window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        // window.localStorage.setItem('Clients', JSON.stringify(this.clients));
       });
     }
   }
@@ -48,12 +48,26 @@ export class GestionClientComponent implements OnInit {
 
   setClient(modal) {
     if (!this.isExistClient) {
-      this.clients.push(this.currentClient);
+      this.clientService.createClient(this.currentClient).subscribe(response => {
+        console.log(response);
+        this.clients.push(response.client);
+        // this.searchClients.push(response.client);
+      });
     } else {
-
+      this.clientService.updateClient(this.currentClient).subscribe(response => {
+        console.log(response);
+        // this.clients.push(response.client);
+        // this.searchClients.push(response.client);
+      });
     }
     // this.onSearch();
     modal.close('Close click');
+  }
+
+  deleteClient() {
+    this.clientService.deleteClient(this.currentClient.id).subscribe(response => {
+      console.log(response);
+    });
   }
 
   openWindowCustomClass(content) {

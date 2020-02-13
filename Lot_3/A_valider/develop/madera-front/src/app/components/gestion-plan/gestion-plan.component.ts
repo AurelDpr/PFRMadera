@@ -24,12 +24,12 @@ export class GestionPlanComponent implements OnInit {
   ngOnInit() {
     this.projetId = Number(this.route.snapshot.paramMap.get('projetId'));
     if (window.localStorage.getItem('Plans') !== null) {
-      this.plans = JSON.parse(window.localStorage.getItem('Plans')).filter(plan => plan.projetId === this.projetId);
-      this.searchPlans = JSON.parse(window.localStorage.getItem('Plans')).filter(plan => plan.projetId === this.projetId);
+      this.plans = JSON.parse(window.localStorage.getItem('Plans')).filter(plan => plan.project_id === this.projetId);
+      this.searchPlans = JSON.parse(window.localStorage.getItem('Plans')).filter(plan => plan.project_id === this.projetId);
     } else {
       this.planService.getAllPlans().subscribe(response => {
-        this.plans = response.filter(plan => plan.projetId === Number(this.projetId));
-        this.searchPlans = response.filter(plan => plan.projetId === Number(this.projetId));
+        this.plans = response.filter(plan => plan.project_id === this.projetId);
+        this.searchPlans = response.filter(plan => plan.project_id === this.projetId);
         window.localStorage.setItem('Plans', JSON.stringify(response));
       });
     }

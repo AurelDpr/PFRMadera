@@ -46,6 +46,8 @@
         <p>{{currentClient.adresse}}<br>{{currentClient.codePostal}} {{currentClient.ville}}</p>
         <p>{{currentClient.phone}}</p>
         <p>{{currentClient.email}}</p>
+        <button class="btn btn-dark" (click)="editClient(content)">Editer le client</button>
+        <button class="btn btn-dark mt-3" (click)="deleteClient()">Supprimer le client</button>
       </div>
     </div>
 
