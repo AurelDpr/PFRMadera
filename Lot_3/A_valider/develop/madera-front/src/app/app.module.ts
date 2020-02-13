@@ -12,6 +12,9 @@ import { GestionPlanComponent } from './components/gestion-plan/gestion-plan.com
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PlanComponent } from './components/plan/plan.component';
 import { ConfigurationComponent } from './components/configuration/configuration.component';
+import { DevisComponent } from './components/devis/devis.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,16 @@ import { ConfigurationComponent } from './components/configuration/configuration
     GestionProjetComponent,
     GestionPlanComponent,
     PlanComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    DevisComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

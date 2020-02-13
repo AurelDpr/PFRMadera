@@ -14,6 +14,6 @@ export class PlanService {
   constructor(private http: HttpClient) { }
 
   getAllPlans(): Observable<any[]> {
-    return this.http.get<any[]>('http://www.json-generator.com/api/json/get/cfJtJjJKIy?indent=2');
+    return this.http.get<any[]>('http://10.173.129.57/pfr-madera/public/api/plans');
   }
 }
