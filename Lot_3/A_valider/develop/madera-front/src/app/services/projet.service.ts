@@ -14,6 +14,6 @@ export class ProjetService {
   constructor(private http: HttpClient) { }
 
   getAllProjets(): Observable<any[]> {
-    return this.http.get<any[]>('http://www.json-generator.com/api/json/get/ceNTbfQLsi?indent=2');
+    return this.http.get<any[]>('http://10.173.129.57/pfr-madera/public/api/projets');
   }
 }

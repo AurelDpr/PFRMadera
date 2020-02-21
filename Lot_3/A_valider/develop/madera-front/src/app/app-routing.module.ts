@@ -6,6 +6,7 @@ import {GestionClientComponent} from './components/gestion-client/gestion-client
 import {GestionPlanComponent} from './components/gestion-plan/gestion-plan.component';
 import {PlanComponent} from './components/plan/plan.component';
 import {ConfigurationComponent} from './components/configuration/configuration.component';
+import {DevisComponent} from './components/devis/devis.component';
 
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'projet/:projetId', component: GestionPlanComponent },
   { path: 'plan/:planId', component: PlanComponent },
   { path: 'configuration', component: ConfigurationComponent },
+  { path: 'devis', component: DevisComponent },
 ];
 
 @NgModule({

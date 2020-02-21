@@ -12,29 +12,70 @@ export class GestionClientComponent implements OnInit {
 
   clients: Array<Client>;
   searchClients: Array<Client>;
-  client: Client = null;
+  currentClient: Client = null;
   search = '';
+  isExistClient = false;
 
   constructor(private clientService: ClientService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.clientService.getAllClients().subscribe(response => {
-      this.clients = response;
-      console.log(this.clients);
-      this.searchClients = response;
-    });
+    if (window.localStorage.getItem('Clients') !== null) {
+      this.clients = JSON.parse(window.localStorage.getItem('Clients'));
+      this.searchClients = JSON.parse(window.localStorage.getItem('Clients'));
+    } else {
+      this.clientService.getAllClients().subscribe(response => {
+        this.clients = response;
+        this.searchClients = response;
+        // window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+      });
+    }
   }
 
   selectClient(client: any) {
-    this.client = client;
+    this.currentClient = client;
   }
 
-  createClient() {
+  createClient(content) {
+    this.currentClient = new Client();
+    this.isExistClient = false;
+    this.openWindowCustomClass(content);
+  }
 
+  editClient(content) {
+    this.isExistClient = true;
+    this.openWindowCustomClass(content);
+  }
+
+  setClient(modal) {
+    if (!this.isExistClient) {
+      this.clientService.createClient(this.currentClient).subscribe(response => {
+        console.log(response);
+        this.clients.push(response.client);
+        // this.searchClients.push(response.client);
+      });
+    } else {
+      this.clientService.updateClient(this.currentClient).subscribe(response => {
+        console.log(response);
+        // this.clients.push(response.client);
+        // this.searchClients.push(response.client);
+      });
+    }
+    // this.onSearch();
+    modal.close('Close click');
+  }
+
+  deleteClient() {
+    this.clientService.deleteClient(this.currentClient.id).subscribe(response => {
+      console.log(response);
+    });
   }
 
   openWindowCustomClass(content) {
     this.modalService.open(content, { centered: true });
+  }
+
+  closeWindowCustomClass(content) {
+    this.modalService.dismissAll();
   }
 
   onSearch() {

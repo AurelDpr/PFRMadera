@@ -59,7 +59,7 @@
         </div>
 
         <div *ngFor="let projet of searchProjets" class="text-light col-2">
-          <div class="rounded-circle border border-light etat" [ngStyle]="{'background-color' : colors[projet.etat]}">
+          <div class="rounded-circle border border-light etat" [ngStyle]="{'background-color' : colors[projet.statut]}">
 
           </div>
           <div class="rounded-circle bg-dark text-light border border-light text-center p-4 m-3 mb-1" (click)="selectProjet(projet)" (dblclick)="openProjet('/projet/'+projet.id)">
