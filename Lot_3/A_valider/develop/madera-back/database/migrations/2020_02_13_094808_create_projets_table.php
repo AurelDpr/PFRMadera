@@ -17,7 +17,7 @@ class CreateProjetsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('statut');
             $table->string('label');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('client_id');
             $table->foreign('client_id')
                 ->references('id')->on('clients')
                 ->onDelete('cascade');

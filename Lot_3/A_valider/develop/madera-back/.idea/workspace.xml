@@ -108,7 +108,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../aide-tesla" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -141,6 +141,9 @@
       <updated>1581585406258</updated>
       <workItem from="1581585407433" duration="4430000" />
       <workItem from="1581599574855" duration="4537000" />
+      <workItem from="1581606868131" duration="2112000" />
+      <workItem from="1581622163739" duration="1151000" />
+      <workItem from="1582234997893" duration="2678000" />
     </task>
     <servers />
   </component>

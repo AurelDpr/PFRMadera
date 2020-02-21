@@ -20,9 +20,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function() {
     Route::apiResource('clients', 'ClientController');
-    Route::post('clients/add', 'ClientController@store')->name('client.store');
-    Route::delete('clients/delete/{id}', 'ClientController@destroy')->name('client.destroy');
-    Route::put('/clients/update', 'TaskController@update')->name('client.update');
+//    Route::post('clients/add', 'ClientController@store')->name('client.store');
+//    Route::delete('clients/delete/{id}', 'ClientController@destroy')->name('client.destroy');
+//    Route::put('/clients/update', 'TaskController@update')->name('client.update');
+//    Route::get('/clients/{id}', 'ClientController@show')->name('client.show');
 });
 
 Route::namespace('Api')->group(function() {

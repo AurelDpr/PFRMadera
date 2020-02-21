@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Client;
+use App\Http\Requests\ClientRequest;
 
 class ClientController extends Controller
 {
@@ -60,8 +61,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Client $client)
     {
+        return $client;
         // return $client;
     }
 
@@ -83,20 +85,21 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Client $client)
     {
-        $id = $request->id;
-        $client = Client::find($id);
+//        $id = $request->id;
+//        $client = Client::find($id);
 
+//        $client->nom = $request->input('nom');
+//        $client->prenom = $request->input('prenom');
+//        $client->phone = $request->input('phone');
+//        $client->email = $request->input('email');
+//        $client->adresse = $request->input('adresse');
+//        $client->codePostal = $request->input('codePostal');
+//        $client->ville = $request->input('ville');
 
-        $client->nom = $request->input('nom');
-        $client->prenom = $request->input('prenom');
-        $client->phone = $request->input('phone');
-        $client->email = $request->input('email');
-        $client->adresse = $request->input('adresse');
-        $client->codePostal = $request->input('codePostal');
-        $client->ville = $request->input('ville');
-        $client->save();
+//        $this->validate($request, ['prenom' => 'bail|required|min:50']);
+          $client->update($request->all());
 
         return response()->json([
             'message' => 'Le client a bien été mis à jour !',
