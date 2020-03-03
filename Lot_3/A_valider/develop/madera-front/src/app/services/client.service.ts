@@ -6,6 +6,7 @@ import {Client} from '../models/Client';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/Json' })
 };
+const baseUrl = 'http://127.0.0.1:8000/api/clients';
 
 @Injectable({
   providedIn: 'root'
@@ -15,18 +16,18 @@ export class ClientService {
   constructor(private http: HttpClient) { }
 
   getAllClients(): Observable<any[]> {
-    return this.http.get<any[]>('http://10.173.129.57/pfr-madera/public/api/clients');
+    return this.http.get<any[]>(baseUrl);
   }
 
-  createClient(client: Client): Observable<any[]> {
-    return this.http.post<any[]>('http://10.173.129.57/pfr-madera/public/api/clients/add', client);
+  createClient(client: Client): Observable<any> {
+    return this.http.post<any[]>(baseUrl + '/add', client);
   }
 
-  updateClient(client: Client): Observable<any[]> {
-    return this.http.put<any[]>('http://10.173.129.57/pfr-madera/public/api/clients/update', client);
+  updateClient(client: Client): Observable<any> {
+    return this.http.put<any[]>(baseUrl + '/update', client);
   }
 
-  deleteClient(clientId: number): Observable<any[]> {
-    return this.http.delete<any[]>('http://10.173.129.57/pfr-madera/public/api/clients/delete/' + clientId);
+  deleteClient(clientId: number): Observable<any> {
+    return this.http.delete<any[]>(baseUrl + '/delete/' + clientId);
   }
 }

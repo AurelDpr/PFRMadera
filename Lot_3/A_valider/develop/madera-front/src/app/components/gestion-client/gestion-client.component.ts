@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Client} from '../../models/Client';
+import {AlertService} from "../../services/alert.service";
 
 @Component({
   selector: 'app-gestion-projet',
@@ -16,7 +17,11 @@ export class GestionClientComponent implements OnInit {
   search = '';
   isExistClient = false;
 
-  constructor(private clientService: ClientService, private modalService: NgbModal) { }
+  constructor(
+    private clientService: ClientService,
+    private modalService: NgbModal,
+    private alertService: AlertService
+  ) { }
 
   ngOnInit() {
     if (window.localStorage.getItem('Clients') !== null) {
@@ -26,7 +31,7 @@ export class GestionClientComponent implements OnInit {
       this.clientService.getAllClients().subscribe(response => {
         this.clients = response;
         this.searchClients = response;
-        // window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        window.localStorage.setItem('Clients', JSON.stringify(this.clients));
       });
     }
   }
@@ -49,15 +54,15 @@ export class GestionClientComponent implements OnInit {
   setClient(modal) {
     if (!this.isExistClient) {
       this.clientService.createClient(this.currentClient).subscribe(response => {
-        console.log(response);
         this.clients.push(response.client);
-        // this.searchClients.push(response.client);
+        window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     } else {
       this.clientService.updateClient(this.currentClient).subscribe(response => {
-        console.log(response);
-        // this.clients.push(response.client);
-        // this.searchClients.push(response.client);
+        this.clients[this.clients.findIndex(client => client.id === response.client.id)] = response.client;
+        window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     }
     // this.onSearch();
@@ -66,7 +71,10 @@ export class GestionClientComponent implements OnInit {
 
   deleteClient() {
     this.clientService.deleteClient(this.currentClient.id).subscribe(response => {
-      console.log(response);
+      this.currentClient = null;
+      this.clients.splice(this.clients.findIndex(client => client.id === response.client.id), 1);
+      window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+      this.alertService.tempAlert(response.message, 5000, 'bg-success');
     });
   }
 
