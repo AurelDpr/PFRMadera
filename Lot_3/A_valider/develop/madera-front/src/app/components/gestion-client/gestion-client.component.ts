@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {Client} from '../../models/Client';
-import {AlertService} from "../../services/alert.service";
+import {AlertService} from '../../services/alert.service';
 
 @Component({
   selector: 'app-gestion-projet',
@@ -10,11 +10,10 @@ import {AlertService} from "../../services/alert.service";
   styleUrls: ['./gestion-client.component.scss']
 })
 export class GestionClientComponent implements OnInit {
-
+  @Input() search = '';
   clients: Array<Client>;
   searchClients: Array<Client>;
   currentClient: Client = null;
-  search = '';
   isExistClient = false;
 
   constructor(
@@ -56,16 +55,17 @@ export class GestionClientComponent implements OnInit {
       this.clientService.createClient(this.currentClient).subscribe(response => {
         this.clients.push(response.client);
         window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        this.onSearch();
         this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     } else {
       this.clientService.updateClient(this.currentClient).subscribe(response => {
         this.clients[this.clients.findIndex(client => client.id === response.client.id)] = response.client;
         window.localStorage.setItem('Clients', JSON.stringify(this.clients));
+        this.onSearch();
         this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     }
-    // this.onSearch();
     modal.close('Close click');
   }
 

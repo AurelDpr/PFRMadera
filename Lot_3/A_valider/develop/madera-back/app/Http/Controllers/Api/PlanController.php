@@ -36,7 +36,17 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'label' => 'required',
+            'project_id' => 'required'
+        ]);
+
+        $plan = Plan::create($request->all());
+
+        return response()->json([
+            'message' => 'Le plan a bien été ajouté !',
+            'plan' => $plan
+        ]);
     }
 
     /**

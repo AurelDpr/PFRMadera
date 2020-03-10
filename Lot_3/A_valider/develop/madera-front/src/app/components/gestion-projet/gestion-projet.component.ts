@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ProjetService} from '../../services/projet.service';
 import {Router} from '@angular/router';
 import {Client} from '../../models/Client';
@@ -13,11 +13,12 @@ import {AlertService} from '../../services/alert.service';
   styleUrls: ['./gestion-projet.component.scss']
 })
 export class GestionProjetComponent implements OnInit {
+  @Input() search = '';
+
   clients: Array<Client>;
   projets: Array<any>;
   searchProjets: Array<any>;
   currentProjet: any = null;
-  search = '';
   colors = ['yellow', 'blue', 'green', 'red'];
   isExistProjet = false;
 
@@ -62,18 +63,20 @@ export class GestionProjetComponent implements OnInit {
   setProjet(modal) {
     if (!this.isExistProjet) {
       this.projetService.createProjet(this.currentProjet).subscribe(response => {
-        this.projets.push(response.client);
+        this.projets.push(response.projet);
         window.localStorage.setItem('Projets', JSON.stringify(this.projets));
+        this.onSearch();
         this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     } else {
       this.projetService.updateProjet(this.currentProjet).subscribe(response => {
         this.projets[this.projets.findIndex(projet => projet.id === response.projet.id)] = response.projet;
         window.localStorage.setItem('Projets', JSON.stringify(this.projets));
+        this.onSearch();
         this.alertService.tempAlert(response.message, 5000, 'bg-success');
       });
     }
-    // this.onSearch();
+
     modal.close('Close click');
   }
 

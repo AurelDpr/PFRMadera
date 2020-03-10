@@ -24,7 +24,7 @@ export class ClientService {
   }
 
   updateClient(client: Client): Observable<any> {
-    return this.http.put<any[]>(baseUrl + '/update', client);
+    return this.http.put<any>(baseUrl + '/update', client);
   }
 
   deleteClient(clientId: number): Observable<any> {

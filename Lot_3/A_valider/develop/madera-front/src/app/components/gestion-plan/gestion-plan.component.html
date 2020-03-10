@@ -44,7 +44,7 @@
     <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-light ml-5 section">
       <div class="row m-3" >
         <div class="text-light text-center col-2">
-          <div class="rounded-circle bg-dark border border-light p-4 m-3 mb-1" (click)="createPlan()">
+          <div class="rounded-circle bg-dark border border-light p-4 m-3 mb-1" (click)="createPlan(content)">
             <h1>
               <i class="fas fa-plus ml-2 mr-2"></i>
             </h1>
@@ -69,3 +69,21 @@
   </section>
 
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-body modalForm">
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <form class="mt-2">
+      <h3 class="text-center text-dark mt-2">Nouveau plan</h3>
+      <div class="form-group text-center">
+        <label for="Label">Label :</label>
+        <input [(ngModel)]="currentPlan.label" name="label" type="text" class="form-control w-75 mx-auto rounded shadow" id="Label" placeholder="Label" >
+      </div>
+      <div class=" w-25 mx-auto">
+        <button class="btn btn-secondary w-100" (click)="setPlan(modal)">Valider</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

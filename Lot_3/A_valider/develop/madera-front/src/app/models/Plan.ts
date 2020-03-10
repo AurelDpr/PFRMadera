@@ -1,13 +1,11 @@
-export class Projet {
+export class Plan {
   id: number;
   label: string;
-  client_id: number;
-  statut: number;
+  project_id: number;
 
   // tslint:disable-next-line:align
   constructor() {
     this.label = '';
-    this.client_id = null;
-    this.statut = 0;
+    this.project_id = null;
   }
 }

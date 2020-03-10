@@ -15,16 +15,7 @@ class ProjetController extends Controller
      */
     public function index()
     {
-//        $projets = Projet::join('clients', 'clients.id', '=', 'projets.client_id')
-//            ->select('clients.nom', 'clients.prenom', 'clients.phone', 'clients.email', 'clients.adresse', 'clients.codePostal', 'clients.ville', 'projets.label AS project_label', 'projets.statut AS project_statut')->get();
-
         return Projet::all();
-
-//        return response()->json([
-//            'projets' => $projets
-//        ]);
-
-//        return Projet::all();
     }
 
     /**
@@ -45,7 +36,18 @@ class ProjetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'label' => 'required',
+            'client_id' => 'required',
+            'statut' => 'required'
+        ]);
+
+        $projet = Projet::create($request->all());
+
+        return response()->json([
+            'message' => 'Le projet a bien été ajouté !',
+            'projet' => $projet
+        ]);
     }
 
     /**

@@ -24,7 +24,7 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
     }
@@ -85,10 +85,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request)
     {
-//        $id = $request->id;
-//        $client = Client::find($id);
+        $id = $request->id;
+        $client = Client::find($id);
 
 //        $client->nom = $request->input('nom');
 //        $client->prenom = $request->input('prenom');
