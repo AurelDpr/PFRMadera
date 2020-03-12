@@ -33,50 +33,61 @@
     <div class="col-2 bg-light border border-success mr-5 section text-center text-dark pt-2">
 
     </div>
-    <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-success bg-light ml-5 section text-center">
-      <table class="w-100 mt-4">
-        <tr>
-          <th class="border border-dark border-1">
-            Composant
-          </th>
-          <th class="border border-dark border-1">
-            Quantité
-          </th>
-          <th class="border border-dark border-1">
-            Prix unitaire
-          </th>
-          <th class="border border-dark border-1">
-            Total
-          </th>
-        </tr>
-        <tr>
-          <td class="border border-dark border-1">
-            Mur bois de chêne (10m*4m)
-          </td>
-          <td class="border border-dark border-1">
-            7
-          </td>
-          <td class="border border-dark border-1">
-            20 €
-          </td>
-          <td class="border border-dark border-1">
-            140 €
-          </td>
-        </tr>
-        <tr>
-          <td>
+    <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-success bg-light ml-5 section text-center px-0">
+      <table class="w-100 table table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th class="border border-dark border-1">
+              Composant
+            </th>
+            <th class="border border-dark border-1">
+              Quantité
+            </th>
+            <th class="border border-dark border-1">
+              Prix unitaire
+            </th>
+            <th class="border border-dark border-1">
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let plan of filterPlans; let index = index;" class="border-0">
+          <tr>
+            <th colspan="4" class="border border-dark border-1">
+              Plan {{index + 1}}: {{plan.label}}
+            </th>
+          </tr>
+          <tr>
+            <td class="border border-dark border-1">
+              Mur bois de chêne (10m*4m)
+            </td>
+            <td class="border border-dark border-1">
+              7
+            </td>
+            <td class="border border-dark border-1">
+              20 €
+            </td>
+            <td class="border border-dark border-1">
+              140 €
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>
 
-          </td>
-          <td>
+            </td>
+            <td>
 
-          </td>
-          <td class="border border-dark border-1 font-weight-bold">
-            Total:
-          </td>
-          <td class="border border-dark border-1">
-            140 €
-          </td>
-        </tr>
+            </td>
+            <td class="border border-dark border-1 font-weight-bold bg-dark text-light">
+              Total:
+            </td>
+            <td class="border border-dark border-1 bg-dark text-light">
+              140 €
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   </section>

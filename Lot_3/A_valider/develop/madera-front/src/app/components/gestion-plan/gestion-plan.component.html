@@ -38,7 +38,7 @@
 
     <div class="col-2 bg-light border border-success mr-5 section text-center text-dark pt-2">
 <!--      <button class="btn btn-dark" [routerLink]="['/devis/'+devis.id]">Ouvrir le projet</button>-->
-      <button class="btn btn-dark" [routerLink]="['/devis/']">Afficher le devis</button>
+      <button class="btn btn-dark" (click)="openDevis()">Afficher le devis</button>
     </div>
 
     <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-light ml-5 section">

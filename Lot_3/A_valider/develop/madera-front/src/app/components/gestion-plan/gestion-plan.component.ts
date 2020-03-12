@@ -3,8 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PlanService} from '../../services/plan.service';
 import {Projet} from '../../models/Projet';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import {AlertService} from "../../services/alert.service";
-import {Plan} from "../../models/Plan";
+import {AlertService} from '../../services/alert.service';
+import {Plan} from '../../models/Plan';
 
 @Component({
   selector: 'app-gestion-plan',
@@ -75,6 +75,10 @@ export class GestionPlanComponent implements OnInit {
 
   openPlan(path) {
     this.router.navigate([path]);
+  }
+
+  openDevis() {
+    this.router.navigate(['/devis/' + this.projetId]);
   }
 
   onSearch() {

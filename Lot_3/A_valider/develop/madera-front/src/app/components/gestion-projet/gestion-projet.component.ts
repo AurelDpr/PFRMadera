@@ -13,9 +13,8 @@ import {AlertService} from '../../services/alert.service';
   styleUrls: ['./gestion-projet.component.scss']
 })
 export class GestionProjetComponent implements OnInit {
-  @Input() search = '';
-
   clients: Array<Client>;
+  search = '';
   projets: Array<any>;
   searchProjets: Array<any>;
   currentProjet: any = null;
