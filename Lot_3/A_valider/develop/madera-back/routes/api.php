@@ -49,3 +49,11 @@ Route::namespace('Api')->group(function() {
     Route::put('/module/update', 'ModuleController@update')->name('module.update');
     Route::get('/module/{id}', 'ModuleController@show')->name('module.show');
 });
+
+Route::namespace('Api')->group(function() {
+    Route::apiResource('modulesplan', 'ModulesPlanController');
+    Route::post('modulesplan/add', 'ModulesPlanController@store')->name('modulesplan.store');
+    Route::delete('modulesplan/delete/{id}', 'ModulesPlanController@destroy')->name('modulesplan.destroy');
+    Route::put('/modulesplan/update', 'ModulesPlanController@update')->name('modulesplan.update');
+    Route::get('/modulesplan/{id}', 'ModulesPlanController@show')->name('modulesplan.show');
+});

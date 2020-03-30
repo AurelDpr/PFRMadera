@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1593f0a0-195c-40f5-b032-bdc80510d023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ModuleController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Module.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_12_094254_create_modules_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ModulesPlanController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/ModulesPlan.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_074428_create_modulesplan_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_075134_add_modules_plan_id_list_to_plan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
@@ -120,11 +121,6 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-7" />
-    <option name="width" value="814" />
-    <option name="height" value="867" />
-  </component>
   <component name="ProjectId" id="1XkLzIfmlU34XFjweh8Z1c4cJBZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -182,7 +178,8 @@
       <workItem from="1583775275474" duration="5867000" />
       <workItem from="1583827332626" duration="653000" />
       <workItem from="1583857324406" duration="2099000" />
-      <workItem from="1584006144553" duration="1422000" />
+      <workItem from="1584006144553" duration="1446000" />
+      <workItem from="1585553557148" duration="2157000" />
     </task>
     <servers />
   </component>
