@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'projet/:projetId', component: GestionPlanComponent },
   { path: 'plan/:planId', component: PlanComponent },
   { path: 'configuration', component: ConfigurationComponent },
-  { path: 'devis', component: DevisComponent },
+  { path: 'devis/:projetId', component: DevisComponent },
 ];
 
 @NgModule({

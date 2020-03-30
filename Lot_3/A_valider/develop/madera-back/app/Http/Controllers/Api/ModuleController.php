@@ -44,7 +44,7 @@ class ModuleController extends Controller
 
         return response()->json([
             'message' => 'Le module a bien été ajouté !',
-            'module' => $client
+            'module' => $module
         ]);
     }
 

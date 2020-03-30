@@ -43,11 +43,11 @@ Route::namespace('Api')->group(function() {
 });
 
 Route::namespace('Api')->group(function() {
-    Route::apiResource('module', 'ModuleController');
-    Route::post('module/add', 'ModuleController@store')->name('module.store');
-    Route::delete('module/delete/{id}', 'ModuleController@destroy')->name('module.destroy');
-    Route::put('/module/update', 'ModuleController@update')->name('module.update');
-    Route::get('/module/{id}', 'ModuleController@show')->name('module.show');
+    Route::apiResource('modules', 'ModuleController');
+    Route::post('modules/add', 'ModuleController@store')->name('module.store');
+    Route::delete('modules/delete/{id}', 'ModuleController@destroy')->name('module.destroy');
+    Route::put('/modules/update', 'ModuleController@update')->name('module.update');
+    Route::get('/modules/{id}', 'ModuleController@show')->name('module.show');
 });
 
 Route::namespace('Api')->group(function() {

@@ -34,20 +34,22 @@
   </div>
 
 
-  <section class="row mx-5 ">
-    <div class="col-2 bg-light border border-success mr-5 section text-center text-dark pt-2">
+  <section class="row mx-5">
+    <div class="col-2 bg-light border border-success mr-5 text-center text-dark">
 
       <!--    <div class="rounded-circle bg-dark p-2 text-light ">-->
       <!--      <h3>Gestion Client</h3>-->
       <!--    </div>-->
 
-      <div *ngIf="currentClient !== null" class="pt-3">
+      <div *ngIf="currentClient !== null" class="section d-flex flex-column pt-3">
         <p>{{currentClient.prenom}} {{currentClient.nom}}</p>
         <p>{{currentClient.adresse}}<br>{{currentClient.codePostal}} {{currentClient.ville}}</p>
         <p>{{currentClient.phone}}</p>
         <p>{{currentClient.email}}</p>
-        <button class="btn btn-dark" (click)="editClient(content)">Editer le client</button>
-        <button class="btn btn-dark mt-3" (click)="deleteClient()">Supprimer le client</button>
+        <div class="mt-auto">
+          <button class="btn btn-dark" (click)="editClient(content)">Editer le client</button>
+          <button class="btn btn-dark mt-3" (click)="deleteClient()">Supprimer le client</button>
+        </div>
       </div>
     </div>
 
