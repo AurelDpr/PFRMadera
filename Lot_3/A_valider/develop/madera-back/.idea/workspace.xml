@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1593f0a0-195c-40f5-b032-bdc80510d023" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ModulesPlanController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ModulesPlan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_074428_create_modulesplan_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_30_075134_add_modules_plan_id_list_to_plan.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -179,7 +174,7 @@
       <workItem from="1583827332626" duration="653000" />
       <workItem from="1583857324406" duration="2099000" />
       <workItem from="1584006144553" duration="1446000" />
-      <workItem from="1585553557148" duration="2157000" />
+      <workItem from="1585553557148" duration="3085000" />
     </task>
     <servers />
   </component>
