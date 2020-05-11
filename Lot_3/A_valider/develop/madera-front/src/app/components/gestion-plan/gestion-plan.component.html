@@ -43,7 +43,7 @@
 
     <div data-simplebar data-simplebar-auto-hide="false" class="col-9 border border-light ml-5 section">
       <div class="row m-3" >
-        <div class="text-light text-center col-2">
+        <div class="text-light text-center circle">
           <div class="rounded-circle bg-dark border border-light p-4 m-3 mb-1" (click)="createPlan(content)">
             <h1>
               <i class="fas fa-plus ml-2 mr-2"></i>
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div *ngFor="let plan of searchPlans" class="text-light col-2" >
+        <div *ngFor="let plan of searchPlans" class="text-light circle" >
           <div class="rounded-circle bg-dark text-light border border-light text-center p-4 m-3 mb-1" (click)="selectPlan(plan)" (dblclick)="openPlan('/plan/'+plan.id)">
             <h1>
               <i class="fas fa-home"></i>
