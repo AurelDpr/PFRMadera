@@ -19,6 +19,10 @@ export class PlanService {
     return this.http.get<any[]>(baseUrl);
   }
 
+  getPlanById(planId: number): Observable<any> {
+    return this.http.get<any>(baseUrl + '/' + planId);
+  }
+
   createPlan(plan: Plan): Observable<any> {
     return this.http.post<any[]>(baseUrl + '/add', plan);
   }

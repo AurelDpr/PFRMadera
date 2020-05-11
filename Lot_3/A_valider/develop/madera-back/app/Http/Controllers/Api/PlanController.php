@@ -38,7 +38,8 @@ class PlanController extends Controller
     {
         $request->validate([
             'label' => 'required',
-            'project_id' => 'required'
+            'project_id' => 'required',
+            'modulesPlanIdList' => 'required'
         ]);
 
         $plan = Plan::create($request->all());
@@ -57,7 +58,8 @@ class PlanController extends Controller
      */
     public function show($id)
     {
-        //
+        $plan = Plan::find($id);
+        return $plan;
     }
 
     /**

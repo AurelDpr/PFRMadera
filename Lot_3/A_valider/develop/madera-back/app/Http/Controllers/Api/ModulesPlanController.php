@@ -37,14 +37,16 @@ class ModulesPlanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'quantite' => 'required',
-            'module_id' => 'required'
+            'module_id' => 'required',
+            'quantite' => 'required'
         ]);
 
-        $module = ModulesPlan::create($request->all());
+        $modulesplan = ModulesPlan::create($request->all());
+        dump($modulesplan);
 
         return response()->json([
             'message' => 'Le moduleplan a bien été ajouté !',
+            'modulesplan' => $modulesplan
         ]);
     }
 

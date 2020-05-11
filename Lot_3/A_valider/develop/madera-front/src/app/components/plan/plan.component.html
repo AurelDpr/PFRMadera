@@ -32,37 +32,73 @@
   <section class="row mx-5 ">
     <div class="col-4 bg-light border border-success mr-5 section text-center text-dark pt-2">
 
-
-      <div class="input-group my-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect01">Formes</label>
+      <div *ngFor="let module of modulesPlan">
+        <div class="input-group my-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Modules</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="module.module_id">
+            <option [value]="null" disabled>Selectionner un module</option>
+            <option *ngFor="let module of modules" [ngValue]="module.id">{{module.label}}</option>
+          </select>
         </div>
-        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="forme">
-          <option [value]="null" disabled>Selectionner une forme</option>
-          <option *ngFor="let forme of formes" [ngValue]="forme">{{forme.label}}</option>
-        </select>
+
+        <div class="input-group my-3">
+          <input type="number" [(ngModel)]="module.quantite" placeholder="Quantité" class="form-control">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="quantité">Quantité</span>
+          </div>
+        </div>
       </div>
 
-      <div class="input-group my-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="">Dimension (cm)</span>
-        </div>
-        <input type="text" placeholder="Longueur" class="form-control">
-        <input type="text" placeholder="Largeur" class="form-control">
+      <div class="col-12">
+        <button class="btn btn-dark" (click)="addNbModule()"> Ajouter un module </button>
+      </div>
+      <div class="col-12 mt-3">
+        <button class="btn btn-dark" (click)="save()"> Enregistrer </button>
       </div>
 
-      <div class="input-group my-3">
-        <div class="input-group-prepend">
-          <label class="input-group-text" for="inputGroupSelect02">Materiaux</label>
-        </div>
-        <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="materiaux">
-          <option [value]="null" disabled>Selectionner un materiau</option>
-          <option [value]="'Bois de chêne'">Bois de chêne</option>
-        </select>
-      </div>
+
+
+
+
+
+
+
+
+
+
+
+<!--      <div class="input-group my-3">-->
+<!--        <div class="input-group-prepend">-->
+<!--          <label class="input-group-text" for="inputGroupSelect01">Formes</label>-->
+<!--        </div>-->
+<!--        <select class="custom-select" id="inputGroupSelect01" [(ngModel)]="forme">-->
+<!--          <option [value]="null" disabled>Selectionner une forme</option>-->
+<!--          <option *ngFor="let forme of formes" [ngValue]="forme">{{forme.label}}</option>-->
+<!--        </select>-->
+<!--      </div>-->
+
+<!--      <div class="input-group my-3">-->
+<!--        <div class="input-group-prepend">-->
+<!--          <span class="input-group-text" id="">Dimension (cm)</span>-->
+<!--        </div>-->
+<!--        <input type="text" placeholder="Longueur" class="form-control">-->
+<!--        <input type="text" placeholder="Largeur" class="form-control">-->
+<!--      </div>-->
+
+<!--      <div class="input-group my-3">-->
+<!--        <div class="input-group-prepend">-->
+<!--          <label class="input-group-text" for="inputGroupSelect02">Materiaux</label>-->
+<!--        </div>-->
+<!--        <select class="custom-select" id="inputGroupSelect02" [(ngModel)]="materiaux">-->
+<!--          <option [value]="null" disabled>Selectionner un materiau</option>-->
+<!--          <option [value]="'Bois de chêne'">Bois de chêne</option>-->
+<!--        </select>-->
+<!--      </div>-->
     </div>
     <div data-simplebar data-simplebar-auto-hide="false" class="col-7 border border-success ml-5 section text-center plan">
-      <img *ngIf="forme" [src]="'data:image/png;base64,' + forme.image" width="450px">
+<!--      <img *ngIf="forme" [src]="'data:image/png;base64,' + forme.image" width="450px">-->
     </div>
   </section>
 </div>

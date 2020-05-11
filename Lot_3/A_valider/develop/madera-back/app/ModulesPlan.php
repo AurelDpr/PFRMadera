@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ModulesPlan extends Model
 {
-    protected $fillable = ['quantite', 'module_id'];
+    protected $fillable = ['module_id', 'quantite'];
 }
